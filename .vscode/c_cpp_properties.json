@@ -1,0 +1,18 @@
+{
+    "configurations": [
+      {
+        "name": "Linux",
+        "compilerPath": "/usr/bin/g++",
+        "intelliSenseMode": "linux-gcc-x64",
+        "cStandard": "c17",
+        "cppStandard": "c++17",
+        "compileCommands": "${workspaceFolder}/build/rover_telemetry/compile_commands.json",
+        "includePath": [
+          "${workspaceFolder}/**",
+          "/opt/ros/humble/include/**",
+          "/usr/include/**"
+        ]
+      }
+    ],
+    "version": 4
+  }
