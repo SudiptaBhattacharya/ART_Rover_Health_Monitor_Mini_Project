@@ -1,0 +1,28 @@
+[0.010s] Invoking command in '/home/sudiptabhattacharyareet/ART_Rover_Health_Monitor_Mini_Project/build/health_monitor': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/sudiptabhattacharyareet/ART_Rover_Health_Monitor_Mini_Project/build/health_monitor -- -j8 -l8
+[0.095s] [ 25%] [32mBuilding CXX object CMakeFiles/health_monitor.dir/src/main.cpp.o[0m
+[0.096s] [ 75%] [32mBuilding CXX object CMakeFiles/health_monitor.dir/src/HealthSubsystem.cpp.o[0m
+[0.096s] [ 75%] [32mBuilding CXX object CMakeFiles/health_monitor.dir/src/HealthMonitorNode.cpp.o[0m
+[4.397s] [100%] [32m[1mLinking CXX executable health_monitor[0m
+[4.606s] [100%] Built target health_monitor
+[4.618s] Invoked command in '/home/sudiptabhattacharyareet/ART_Rover_Health_Monitor_Mini_Project/build/health_monitor' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/sudiptabhattacharyareet/ART_Rover_Health_Monitor_Mini_Project/build/health_monitor -- -j8 -l8
+[4.619s] Invoking command in '/home/sudiptabhattacharyareet/ART_Rover_Health_Monitor_Mini_Project/build/health_monitor': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --install /home/sudiptabhattacharyareet/ART_Rover_Health_Monitor_Mini_Project/build/health_monitor
+[4.622s] -- Install configuration: ""
+[4.623s] -- Execute custom install script
+[4.623s] -- Up-to-date symlink: /home/sudiptabhattacharyareet/ART_Rover_Health_Monitor_Mini_Project/install/health_monitor/lib/health_monitor/health_monitor
+[4.623s] -- Up-to-date symlink: /home/sudiptabhattacharyareet/ART_Rover_Health_Monitor_Mini_Project/install/health_monitor/share/health_monitor/launch/rover_health.launch.py
+[4.623s] -- Up-to-date symlink: /home/sudiptabhattacharyareet/ART_Rover_Health_Monitor_Mini_Project/install/health_monitor/share/ament_index/resource_index/package_run_dependencies/health_monitor
+[4.623s] -- Up-to-date symlink: /home/sudiptabhattacharyareet/ART_Rover_Health_Monitor_Mini_Project/install/health_monitor/share/ament_index/resource_index/parent_prefix_path/health_monitor
+[4.623s] -- Up-to-date symlink: /home/sudiptabhattacharyareet/ART_Rover_Health_Monitor_Mini_Project/install/health_monitor/share/health_monitor/environment/ament_prefix_path.sh
+[4.623s] -- Up-to-date symlink: /home/sudiptabhattacharyareet/ART_Rover_Health_Monitor_Mini_Project/install/health_monitor/share/health_monitor/environment/ament_prefix_path.dsv
+[4.623s] -- Up-to-date symlink: /home/sudiptabhattacharyareet/ART_Rover_Health_Monitor_Mini_Project/install/health_monitor/share/health_monitor/environment/path.sh
+[4.623s] -- Up-to-date symlink: /home/sudiptabhattacharyareet/ART_Rover_Health_Monitor_Mini_Project/install/health_monitor/share/health_monitor/environment/path.dsv
+[4.624s] -- Up-to-date symlink: /home/sudiptabhattacharyareet/ART_Rover_Health_Monitor_Mini_Project/install/health_monitor/share/health_monitor/local_setup.bash
+[4.624s] -- Up-to-date symlink: /home/sudiptabhattacharyareet/ART_Rover_Health_Monitor_Mini_Project/install/health_monitor/share/health_monitor/local_setup.sh
+[4.624s] -- Up-to-date symlink: /home/sudiptabhattacharyareet/ART_Rover_Health_Monitor_Mini_Project/install/health_monitor/share/health_monitor/local_setup.zsh
+[4.624s] -- Up-to-date symlink: /home/sudiptabhattacharyareet/ART_Rover_Health_Monitor_Mini_Project/install/health_monitor/share/health_monitor/local_setup.dsv
+[4.624s] -- Symlinking: /home/sudiptabhattacharyareet/ART_Rover_Health_Monitor_Mini_Project/install/health_monitor/share/health_monitor/package.dsv
+[4.627s] -- Up-to-date symlink: /home/sudiptabhattacharyareet/ART_Rover_Health_Monitor_Mini_Project/install/health_monitor/share/ament_index/resource_index/packages/health_monitor
+[4.627s] -- Up-to-date symlink: /home/sudiptabhattacharyareet/ART_Rover_Health_Monitor_Mini_Project/install/health_monitor/share/health_monitor/cmake/health_monitorConfig.cmake
+[4.627s] -- Up-to-date symlink: /home/sudiptabhattacharyareet/ART_Rover_Health_Monitor_Mini_Project/install/health_monitor/share/health_monitor/cmake/health_monitorConfig-version.cmake
+[4.627s] -- Up-to-date symlink: /home/sudiptabhattacharyareet/ART_Rover_Health_Monitor_Mini_Project/install/health_monitor/share/health_monitor/package.xml
+[4.635s] Invoked command in '/home/sudiptabhattacharyareet/ART_Rover_Health_Monitor_Mini_Project/build/health_monitor' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --install /home/sudiptabhattacharyareet/ART_Rover_Health_Monitor_Mini_Project/build/health_monitor
