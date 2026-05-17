@@ -2,11 +2,13 @@
 
 ## Overview
 
-This project is a ROS 2 Humble mini project built in C++ to simulate rover telemetry, monitor rover health in real time, and publish safety-related alerts and commands.
+This project is a ROS 2 Humble mini project built in C++ to simulate rover telemetry, monitor rover health in real time, and publish safety-related alerts and commands
+I also added live mission event injection so an operator can trigger scenarios in real time during the demo.
 
 The system is designed around a rover health monitoring concept:
 - one package simulates rover telemetry during different mission phases
 - one package monitors incoming telemetry, evaluates rover health, and determines appropriate safety actions
+
 
 ## Package roles
 
@@ -112,6 +114,50 @@ Recovery
 Conditions improve and the rover begins returning toward safer operation.
 
 This allows the dashboard and topics to tell a mission-style story rather than just printing static values
+
+## Live Mission Event Injection
+The telemetry simulator supports live operator-injected mission events through the `/mission_event` topic. This allows the system to be tested interactively during runtime without changing the code.
+
+Supported mission events include:
+- `startup`
+- `normal`
+- `cruise`
+- `rough`
+- `obstacle`
+- `low_power`
+- `emergency`
+- `recovery`
+- `resume_auto`
+
+These events can be injected from another terminal while the system is running.
+
+### Example Commands
+
+Trigger obstacle encounter:
+
+- ros2 topic pub --once /mission_event std_msgs/msg/String "{data: 'obstacle'}"
+
+Trigger rough terrain:
+
+- ros2 topic pub --once /mission_event std_msgs/msg/String "{data: 'rough'}"
+
+Trigger low-power condition:
+
+- ros2 topic pub --once /mission_event std_msgs/msg/String "{data: 'low_power'}"
+
+Trigger emergency state:
+
+- ros2 topic pub --once /mission_event std_msgs/msg/String "{data: 'emergency'}"
+
+Trigger recovery:
+
+- ros2 topic pub --once /mission_event std_msgs/msg/String "{data: 'recovery'}"
+
+Return to automatic mission flow:
+
+- ros2 topic pub --once /mission_event std_msgs/msg/String "{data: 'resume_auto'}"
+
+This interaction makes the project more representative of a real rover control environment, where an operator or external subsystem may inject mission events in real time.
 
 ## Features
 
