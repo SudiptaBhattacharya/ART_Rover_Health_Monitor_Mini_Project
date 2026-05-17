@@ -64,6 +64,7 @@ HealthThresholds HealthMonitorNode::loadThresholds() const {
     return thresholds;
 }
 
+//better style
 void HealthMonitorNode::printDashboard(const ParsedTelemetryData& data, const HealthResult& result) const {
     const std::string colour = colourForStatus(result.status);
 
