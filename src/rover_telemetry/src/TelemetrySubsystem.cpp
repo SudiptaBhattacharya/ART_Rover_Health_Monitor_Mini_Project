@@ -1,42 +1,91 @@
 #include "TelemetrySubsystem.hpp"
 
 #include <sstream>
+#include <vector>
 
-TelemetrySubsystem::TelemetrySubsystem() : step_(0) {}
+TelemetrySubsystem::TelemetrySubsystem()
+    : phase_index_(0), step_in_phase_(0) {}
+
+void TelemetrySubsystem::advancePhaseIfNeeded() {
+    ++step_in_phase_;
+
+    // each phase lasts 3 updates
+    if (step_in_phase_ >= 3) {
+        step_in_phase_ = 0;
+        phase_index_ = (phase_index_ + 1) % 7;
+    }
+}
 
 TelemetryData TelemetrySubsystem::generateTelemetry() {
     TelemetryData data{};
 
-    int phase = step_ % 15;
+    switch (phase_index_) {
+        case 0:  // STARTUP_CHECK
+            data.battery = 100 - step_in_phase_;
+            data.temperature = 30.0 + step_in_phase_;
+            data.obstacle_distance = 5.0;
+            data.mode = "INITIALISING";
+            data.mission_phase = "STARTUP_CHECK";
+            break;
 
-    if (phase >= 0 && phase <= 2) {
-        data.battery = 95 - phase * 2;
-        data.temperature = 35.0 + phase * 1.5;
-        data.obstacle_distance = 3.0;
-        data.mode = "NORMAL";
-    } else if (phase >= 3 && phase <= 5) {
-        data.battery = 82 - (phase - 3) * 4;
-        data.temperature = 48.0 + (phase - 3) * 5.0;
-        data.obstacle_distance = 1.8 - (phase - 3) * 0.3;
-        data.mode = "ROUGH_TERRAIN";
-    } else if (phase >= 6 && phase <= 8) {
-        data.battery = 60 - (phase - 6) * 6;
-        data.temperature = 58.0 + (phase - 6) * 4.0;
-        data.obstacle_distance = 0.9 - (phase - 6) * 0.2;
-        data.mode = "OBSTACLE_NEAR";
-    } else if (phase >= 9 && phase <= 11) {
-        data.battery = 18 - (phase - 9) * 3;
-        data.temperature = 76.0 + (phase - 9) * 2.0;
-        data.obstacle_distance = 0.4;
-        data.mode = "CRITICAL_STATE";
-    } else {
-        data.battery = 50 + (phase - 12) * 10;
-        data.temperature = 55.0 - (phase - 12) * 6.0;
-        data.obstacle_distance = 1.5 + (phase - 12) * 0.7;
-        data.mode = "RECOVERY";
+        case 1:  // CRUISE
+            data.battery = 96 - step_in_phase_ * 2;
+            data.temperature = 34.0 + step_in_phase_ * 1.5;
+            data.obstacle_distance = 4.0;
+            data.mode = "CRUISING";
+            data.mission_phase = "CRUISE";
+            break;
+
+        case 2:  // ROUGH_TERRAIN
+            data.battery = 88 - step_in_phase_ * 4;
+            data.temperature = 45.0 + step_in_phase_ * 5.0;
+            data.obstacle_distance = 2.0 - step_in_phase_ * 0.2;
+            data.mode = "ROUGH_TERRAIN";
+            data.mission_phase = "ROUGH_TERRAIN";
+            break;
+
+        case 3:  // OBSTACLE_ENCOUNTER
+            data.battery = 74 - step_in_phase_ * 3;
+            data.temperature = 58.0 + step_in_phase_ * 3.0;
+            data.obstacle_distance = 1.0 - step_in_phase_ * 0.3;
+            data.mode = "OBSTACLE_NEAR";
+            data.mission_phase = "OBSTACLE_ENCOUNTER";
+            break;
+
+        case 4:  // LOW_POWER
+            data.battery = 35 - step_in_phase_ * 7;
+            data.temperature = 60.0 + step_in_phase_ * 2.0;
+            data.obstacle_distance = 1.8;
+            data.mode = "LOW_POWER";
+            data.mission_phase = "LOW_POWER";
+            break;
+
+        case 5:  // EMERGENCY
+            data.battery = 18 - step_in_phase_ * 2;
+            data.temperature = 76.0 + step_in_phase_ * 2.0;
+            data.obstacle_distance = 0.4;
+            data.mode = "CRITICAL_STATE";
+            data.mission_phase = "EMERGENCY";
+            break;
+
+        case 6:  // RECOVERY
+            data.battery = 28 + step_in_phase_ * 12;
+            data.temperature = 65.0 - step_in_phase_ * 8.0;
+            data.obstacle_distance = 1.5 + step_in_phase_ * 0.8;
+            data.mode = "RECOVERY";
+            data.mission_phase = "RECOVERY";
+            break;
+
+        default:
+            data.battery = 100;
+            data.temperature = 30.0;
+            data.obstacle_distance = 5.0;
+            data.mode = "UNKNOWN";
+            data.mission_phase = "UNKNOWN";
+            break;
     }
 
-    ++step_;
+    advancePhaseIfNeeded();
     return data;
 }
 
@@ -45,6 +94,7 @@ std::string TelemetrySubsystem::formatTelemetry(const TelemetryData& data) const
     oss << "battery=" << data.battery
         << ",temp=" << data.temperature
         << ",distance=" << data.obstacle_distance
-        << ",mode=" << data.mode;
+        << ",mode=" << data.mode
+        << ",phase=" << data.mission_phase;
     return oss.str();
 }

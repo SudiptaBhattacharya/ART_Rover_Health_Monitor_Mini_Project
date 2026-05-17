@@ -7,6 +7,7 @@ struct ParsedTelemetryData {
     double temperature;
     double obstacle_distance;
     std::string mode;
+    std::string mission_phase;
 };
 
 struct HealthResult {

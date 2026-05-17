@@ -68,6 +68,7 @@ HealthThresholds HealthMonitorNode::loadThresholds() const {
     return thresholds;
 }
 
+//reader-friendly dashboard
 void HealthMonitorNode::printDashboard(const ParsedTelemetryData& data, const HealthResult& result) const {
     const std::string colour = colourForStatus(result.status);
 
@@ -75,6 +76,7 @@ void HealthMonitorNode::printDashboard(const ParsedTelemetryData& data, const He
     out << "\n==================================================\n"
         << "              Rover Health Dashboard              \n"
         << "==================================================\n"
+        << " Mission:     " << data.mission_phase << "\n"
         << " Mode:        " << data.mode << "\n"
         << " Battery:     " << data.battery << "%\n"
         << " Temperature: " << std::fixed << std::setprecision(1) << data.temperature << " C\n"

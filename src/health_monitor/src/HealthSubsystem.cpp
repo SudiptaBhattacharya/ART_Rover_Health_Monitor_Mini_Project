@@ -4,7 +4,7 @@
 #include <string>
 
 ParsedTelemetryData HealthSubsystem::parseTelemetry(const std::string& telemetry) const {
-    ParsedTelemetryData data{0, 0.0, 0.0, "UNKNOWN"};
+    ParsedTelemetryData data{0, 0.0, 0.0, "UNKNOWN", "UNKNOWN"};
 
     std::stringstream ss(telemetry);
     std::string token;
@@ -26,6 +26,8 @@ ParsedTelemetryData HealthSubsystem::parseTelemetry(const std::string& telemetry
             data.obstacle_distance = std::stod(value);
         } else if (key == "mode") {
             data.mode = value;
+        } else if (key == "phase") {
+            data.mission_phase = value;
         }
     }
 
