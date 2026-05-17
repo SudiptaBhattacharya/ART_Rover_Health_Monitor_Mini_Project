@@ -72,6 +72,9 @@ Published by: health_monitor
 
 Carries recommended rover actions based on current telemetry and health assessment.
 
+/mission_events:
+Supports live operator-injected mission events
+
 ## Run Instructions:
 
 # Option 1: Run Nodes manually
