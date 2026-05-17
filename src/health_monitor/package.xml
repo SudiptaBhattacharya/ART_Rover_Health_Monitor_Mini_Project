@@ -3,8 +3,8 @@
 <package format="3">
   <name>health_monitor</name>
   <version>0.0.0</version>
-  <description>TODO: Package description</description>
-  <maintainer email="sudiptabhattacharyareet@todo.todo">sudiptabhattacharyareet</maintainer>
+  <description>Subscribes to rover telemetry and reports health status</description>
+  <maintainer email="sudiptoreet@gmail.com">sudiptabhattacharyareet</maintainer>
   <license>TODO: License declaration</license>
 
   <buildtool_depend>ament_cmake</buildtool_depend>
