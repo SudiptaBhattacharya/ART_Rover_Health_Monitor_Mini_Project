@@ -21,10 +21,13 @@ public:
     std::string formatTelemetry(const TelemetryData& data) const;
 
     void setMissionPhase(const std::string& event_name);
+    void clearOverride();
 
 private:
     int phase_index_;
     int step_in_phase_;
+    bool override_active_;
 
     void advancePhaseIfNeeded();
+    int phaseIndexFromEvent(const std::string& event_name) const;
 };

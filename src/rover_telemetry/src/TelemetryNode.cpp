@@ -27,7 +27,7 @@ void TelemetryNode::missionEventCallback(const std_msgs::msg::String::SharedPtr 
 
     RCLCPP_WARN(
         this->get_logger(),
-        "MISSION EVENT RECEIVED: switching to phase triggered by '%s'",
+        "MISSION EVENT RECEIVED: '%s'",
         msg->data.c_str()
     );
 }

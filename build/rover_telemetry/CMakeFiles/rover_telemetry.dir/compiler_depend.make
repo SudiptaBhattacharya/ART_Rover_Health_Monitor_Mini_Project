@@ -894,7 +894,12 @@ CMakeFiles/rover_telemetry.dir/src/TelemetrySubsystem.cpp.o: /home/sudiptabhatta
   /usr/include/c++/11/ostream \
   /usr/include/c++/11/bits/ostream.tcc \
   /usr/include/c++/11/bits/istream.tcc \
-  /usr/include/c++/11/bits/sstream.tcc
+  /usr/include/c++/11/bits/sstream.tcc \
+  /usr/include/c++/11/vector \
+  /usr/include/c++/11/bits/stl_uninitialized.h \
+  /usr/include/c++/11/bits/stl_vector.h \
+  /usr/include/c++/11/bits/stl_bvector.h \
+  /usr/include/c++/11/bits/vector.tcc
 
 CMakeFiles/rover_telemetry.dir/src/main.cpp.o: /home/sudiptabhattacharyareet/ART_Rover_Health_Monitor_Mini_Project/src/rover_telemetry/src/main.cpp \
   /usr/include/stdc-predef.h \

@@ -24,6 +24,17 @@ std::string colourForStatus(const std::string& status) {
 }
 }
 
+std::string joinReasons(const std::vector<std::string>& reasons) {
+    std::ostringstream oss;
+    for (std::size_t i = 0; i < reasons.size(); ++i) {
+        oss << reasons[i];
+        if (i + 1 < reasons.size()) {
+            oss << "; ";
+        }
+    }
+    return oss.str();
+}
+
 HealthMonitorNode::HealthMonitorNode()
     : Node("health_monitor_node"),
       previous_status_("UNKNOWN"),
@@ -71,6 +82,7 @@ HealthThresholds HealthMonitorNode::loadThresholds() const {
 //reader-friendly dashboard
 void HealthMonitorNode::printDashboard(const ParsedTelemetryData& data, const HealthResult& result) const {
     const std::string colour = colourForStatus(result.status);
+    const std::string joined_reasons = joinReasons(result.reasons);
 
     std::ostringstream out;
     out << "\n==================================================\n"
@@ -82,7 +94,7 @@ void HealthMonitorNode::printDashboard(const ParsedTelemetryData& data, const He
         << " Temperature: " << std::fixed << std::setprecision(1) << data.temperature << " C\n"
         << " Distance:    " << std::fixed << std::setprecision(1) << data.obstacle_distance << " m\n"
         << " Status:      " << colour << result.status << RESET << "\n"
-        << " Reason:      " << result.reason << "\n"
+        << " Reasons:     " << joined_reasons << "\n"
         << " Action:      " << CYAN << result.action << RESET << "\n"
         << "==================================================";
 
@@ -93,6 +105,7 @@ void HealthMonitorNode::telemetryCallback(const std_msgs::msg::String::SharedPtr
     const ParsedTelemetryData data = subsystem_.parseTelemetry(msg->data);
     const HealthThresholds thresholds = loadThresholds();
     const HealthResult result = subsystem_.assessHealth(data, thresholds);
+    const std::string joined_reasons = joinReasons(result.reasons);
 
     if (result.status != previous_status_) {
         RCLCPP_WARN(
@@ -105,7 +118,7 @@ void HealthMonitorNode::telemetryCallback(const std_msgs::msg::String::SharedPtr
         std_msgs::msg::String alert_msg;
         alert_msg.data =
             "STATE CHANGE: " + previous_status_ + " -> " + result.status +
-            " | Reason: " + result.reason +
+            " | Reasons: " + joined_reasons +
             " | Mode: " + data.mode;
         alert_publisher_->publish(alert_msg);
 
@@ -123,7 +136,7 @@ void HealthMonitorNode::telemetryCallback(const std_msgs::msg::String::SharedPtr
         std_msgs::msg::String command_msg;
         command_msg.data =
             "COMMAND CHANGE: " + previous_action_ + " -> " + result.action +
-            " | Reason: " + result.reason +
+            " | Reasons: " + joined_reasons +
             " | Mode: " + data.mode;
         command_publisher_->publish(command_msg);
 
@@ -134,7 +147,7 @@ void HealthMonitorNode::telemetryCallback(const std_msgs::msg::String::SharedPtr
         std_msgs::msg::String alert_msg;
         alert_msg.data =
             "ALERT | Status: " + result.status +
-            " | Reason: " + result.reason +
+            " | Reasons: " + joined_reasons +
             " | Mode: " + data.mode;
         alert_publisher_->publish(alert_msg);
     }
@@ -143,7 +156,7 @@ void HealthMonitorNode::telemetryCallback(const std_msgs::msg::String::SharedPtr
     command_msg.data =
         "COMMAND | Action: " + result.action +
         " | Status: " + result.status +
-        " | Reason: " + result.reason +
+        " | Reasons: " + joined_reasons +
         " | Mode: " + data.mode;
     command_publisher_->publish(command_msg);
 

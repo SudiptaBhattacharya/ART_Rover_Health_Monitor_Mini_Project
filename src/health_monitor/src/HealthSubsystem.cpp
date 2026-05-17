@@ -38,29 +38,60 @@ HealthResult HealthSubsystem::assessHealth(
     const ParsedTelemetryData& data,
     const HealthThresholds& thresholds
 ) const {
+    std::vector<std::string> critical_reasons;
+    std::vector<std::string> warning_reasons;
+
     if (data.obstacle_distance < thresholds.distance_critical_threshold) {
-        return {"CRITICAL", "Obstacle dangerously close", "STOP_IMMEDIATELY"};
+        critical_reasons.push_back("Obstacle dangerously close");
+    } else if (data.obstacle_distance < thresholds.distance_warning_threshold) {
+        warning_reasons.push_back("Obstacle approaching");
     }
 
     if (data.battery < thresholds.battery_critical_threshold) {
-        return {"CRITICAL", "Battery critically low", "ENTER_SAFE_MODE"};
+        critical_reasons.push_back("Battery critically low");
+    } else if (data.battery < thresholds.battery_warning_threshold) {
+        warning_reasons.push_back("Battery getting low");
     }
 
     if (data.temperature > thresholds.temperature_critical_threshold) {
-        return {"CRITICAL", "Motor temperature critically high", "SHUTDOWN_NONESSENTIAL_SYSTEMS"};
+        critical_reasons.push_back("Motor temperature critically high");
+    } else if (data.temperature > thresholds.temperature_warning_threshold) {
+        warning_reasons.push_back("Motor temperature rising");
     }
 
-    if (data.obstacle_distance < thresholds.distance_warning_threshold) {
-        return {"WARNING", "Obstacle approaching", "REDUCE_SPEED"};
+    if (!critical_reasons.empty()) {
+        std::string action = "ENTER_SAFE_MODE";
+
+        for (const auto& reason : critical_reasons) {
+            if (reason == "Obstacle dangerously close") {
+                action = "STOP_IMMEDIATELY";
+                break;
+            }
+            if (reason == "Motor temperature critically high") {
+                action = "SHUTDOWN_NONESSENTIAL_SYSTEMS";
+            }
+        }
+
+        return {"CRITICAL", critical_reasons, action};
     }
 
-    if (data.temperature > thresholds.temperature_warning_threshold) {
-        return {"WARNING", "Motor temperature rising", "LIMIT_MOTOR_LOAD"};
+    if (!warning_reasons.empty()) {
+        std::string action = "CONTINUE_NORMAL";
+
+        for (const auto& reason : warning_reasons) {
+            if (reason == "Obstacle approaching") {
+                action = "REDUCE_SPEED";
+                break;
+            }
+            if (reason == "Motor temperature rising") {
+                action = "LIMIT_MOTOR_LOAD";
+            } else if (reason == "Battery getting low" && action == "CONTINUE_NORMAL") {
+                action = "PREPARE_RETURN";
+            }
+        }
+
+        return {"WARNING", warning_reasons, action};
     }
 
-    if (data.battery < thresholds.battery_warning_threshold) {
-        return {"WARNING", "Battery getting low", "PREPARE_RETURN"};
-    }
-
-    return {"OK", "All systems normal", "CONTINUE_NORMAL"};
+    return {"OK", {"All systems normal"}, "CONTINUE_NORMAL"};
 }

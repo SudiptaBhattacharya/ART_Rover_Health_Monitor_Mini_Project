@@ -1,6 +1,7 @@
 #pragma once
 
 #include <string>
+#include <vector>
 
 struct ParsedTelemetryData {
     int battery;
@@ -12,7 +13,7 @@ struct ParsedTelemetryData {
 
 struct HealthResult {
     std::string status;
-    std::string reason;
+    std::vector<std::string> reasons;
     std::string action;
 };
 

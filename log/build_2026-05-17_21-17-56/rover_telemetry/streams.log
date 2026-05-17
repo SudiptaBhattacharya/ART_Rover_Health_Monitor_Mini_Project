@@ -1,0 +1,28 @@
+[0.008s] Invoking command in '/home/sudiptabhattacharyareet/ART_Rover_Health_Monitor_Mini_Project/build/rover_telemetry': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/sudiptabhattacharyareet/ART_Rover_Health_Monitor_Mini_Project/build/rover_telemetry -- -j8 -l8
+[0.100s] [35m[1mConsolidate compiler generated dependencies of target rover_telemetry[0m
+[0.112s] [ 25%] [32mBuilding CXX object CMakeFiles/rover_telemetry.dir/src/main.cpp.o[0m
+[0.113s] [ 50%] [32mBuilding CXX object CMakeFiles/rover_telemetry.dir/src/TelemetrySubsystem.cpp.o[0m
+[0.113s] [ 75%] [32mBuilding CXX object CMakeFiles/rover_telemetry.dir/src/TelemetryNode.cpp.o[0m
+[3.347s] [100%] [32m[1mLinking CXX executable rover_telemetry[0m
+[3.542s] [100%] Built target rover_telemetry
+[3.547s] Invoked command in '/home/sudiptabhattacharyareet/ART_Rover_Health_Monitor_Mini_Project/build/rover_telemetry' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/sudiptabhattacharyareet/ART_Rover_Health_Monitor_Mini_Project/build/rover_telemetry -- -j8 -l8
+[3.547s] Invoking command in '/home/sudiptabhattacharyareet/ART_Rover_Health_Monitor_Mini_Project/build/rover_telemetry': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --install /home/sudiptabhattacharyareet/ART_Rover_Health_Monitor_Mini_Project/build/rover_telemetry
+[3.550s] -- Install configuration: ""
+[3.550s] -- Execute custom install script
+[3.550s] -- Up-to-date symlink: /home/sudiptabhattacharyareet/ART_Rover_Health_Monitor_Mini_Project/install/rover_telemetry/lib/rover_telemetry/rover_telemetry
+[3.550s] -- Up-to-date symlink: /home/sudiptabhattacharyareet/ART_Rover_Health_Monitor_Mini_Project/install/rover_telemetry/share/ament_index/resource_index/package_run_dependencies/rover_telemetry
+[3.551s] -- Up-to-date symlink: /home/sudiptabhattacharyareet/ART_Rover_Health_Monitor_Mini_Project/install/rover_telemetry/share/ament_index/resource_index/parent_prefix_path/rover_telemetry
+[3.551s] -- Up-to-date symlink: /home/sudiptabhattacharyareet/ART_Rover_Health_Monitor_Mini_Project/install/rover_telemetry/share/rover_telemetry/environment/ament_prefix_path.sh
+[3.551s] -- Up-to-date symlink: /home/sudiptabhattacharyareet/ART_Rover_Health_Monitor_Mini_Project/install/rover_telemetry/share/rover_telemetry/environment/ament_prefix_path.dsv
+[3.551s] -- Up-to-date symlink: /home/sudiptabhattacharyareet/ART_Rover_Health_Monitor_Mini_Project/install/rover_telemetry/share/rover_telemetry/environment/path.sh
+[3.551s] -- Up-to-date symlink: /home/sudiptabhattacharyareet/ART_Rover_Health_Monitor_Mini_Project/install/rover_telemetry/share/rover_telemetry/environment/path.dsv
+[3.551s] -- Up-to-date symlink: /home/sudiptabhattacharyareet/ART_Rover_Health_Monitor_Mini_Project/install/rover_telemetry/share/rover_telemetry/local_setup.bash
+[3.551s] -- Up-to-date symlink: /home/sudiptabhattacharyareet/ART_Rover_Health_Monitor_Mini_Project/install/rover_telemetry/share/rover_telemetry/local_setup.sh
+[3.551s] -- Up-to-date symlink: /home/sudiptabhattacharyareet/ART_Rover_Health_Monitor_Mini_Project/install/rover_telemetry/share/rover_telemetry/local_setup.zsh
+[3.551s] -- Up-to-date symlink: /home/sudiptabhattacharyareet/ART_Rover_Health_Monitor_Mini_Project/install/rover_telemetry/share/rover_telemetry/local_setup.dsv
+[3.551s] -- Symlinking: /home/sudiptabhattacharyareet/ART_Rover_Health_Monitor_Mini_Project/install/rover_telemetry/share/rover_telemetry/package.dsv
+[3.554s] -- Up-to-date symlink: /home/sudiptabhattacharyareet/ART_Rover_Health_Monitor_Mini_Project/install/rover_telemetry/share/ament_index/resource_index/packages/rover_telemetry
+[3.554s] -- Up-to-date symlink: /home/sudiptabhattacharyareet/ART_Rover_Health_Monitor_Mini_Project/install/rover_telemetry/share/rover_telemetry/cmake/rover_telemetryConfig.cmake
+[3.554s] -- Up-to-date symlink: /home/sudiptabhattacharyareet/ART_Rover_Health_Monitor_Mini_Project/install/rover_telemetry/share/rover_telemetry/cmake/rover_telemetryConfig-version.cmake
+[3.554s] -- Up-to-date symlink: /home/sudiptabhattacharyareet/ART_Rover_Health_Monitor_Mini_Project/install/rover_telemetry/share/rover_telemetry/package.xml
+[3.555s] Invoked command in '/home/sudiptabhattacharyareet/ART_Rover_Health_Monitor_Mini_Project/build/rover_telemetry' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --install /home/sudiptabhattacharyareet/ART_Rover_Health_Monitor_Mini_Project/build/rover_telemetry
