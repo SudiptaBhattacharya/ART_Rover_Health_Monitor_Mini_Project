@@ -20,6 +20,8 @@ public:
     TelemetryData generateTelemetry();
     std::string formatTelemetry(const TelemetryData& data) const;
 
+    void setMissionPhase(const std::string& event_name);
+
 private:
     int phase_index_;
     int step_in_phase_;

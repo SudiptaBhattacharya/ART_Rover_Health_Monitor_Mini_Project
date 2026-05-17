@@ -1,7 +1,6 @@
 #include "TelemetrySubsystem.hpp"
 
 #include <sstream>
-#include <vector>
 
 TelemetrySubsystem::TelemetrySubsystem()
     : phase_index_(0), step_in_phase_(0) {}
@@ -9,10 +8,29 @@ TelemetrySubsystem::TelemetrySubsystem()
 void TelemetrySubsystem::advancePhaseIfNeeded() {
     ++step_in_phase_;
 
-    // each phase lasts 3 updates
     if (step_in_phase_ >= 3) {
         step_in_phase_ = 0;
         phase_index_ = (phase_index_ + 1) % 7;
+    }
+}
+
+void TelemetrySubsystem::setMissionPhase(const std::string& event_name) {
+    step_in_phase_ = 0;
+
+    if (event_name == "startup") {
+        phase_index_ = 0;
+    } else if (event_name == "cruise" || event_name == "normal") {
+        phase_index_ = 1;
+    } else if (event_name == "rough") {
+        phase_index_ = 2;
+    } else if (event_name == "obstacle") {
+        phase_index_ = 3;
+    } else if (event_name == "low_power") {
+        phase_index_ = 4;
+    } else if (event_name == "emergency") {
+        phase_index_ = 5;
+    } else if (event_name == "recovery") {
+        phase_index_ = 6;
     }
 }
 
