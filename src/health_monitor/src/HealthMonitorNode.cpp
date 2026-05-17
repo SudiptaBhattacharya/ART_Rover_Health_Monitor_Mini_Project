@@ -8,6 +8,7 @@ const std::string RESET  = "\033[0m";
 const std::string RED    = "\033[31m";
 const std::string GREEN  = "\033[32m";
 const std::string YELLOW = "\033[33m";
+const std::string CYAN   = "\033[36m";
 
 std::string colourForStatus(const std::string& status) {
     if (status == "OK") {
@@ -24,7 +25,9 @@ std::string colourForStatus(const std::string& status) {
 }
 
 HealthMonitorNode::HealthMonitorNode()
-    : Node("health_monitor_node"), previous_status_("UNKNOWN") {
+    : Node("health_monitor_node"),
+      previous_status_("UNKNOWN"),
+      previous_action_("NONE") {
     this->declare_parameter("battery_warning_threshold", 40);
     this->declare_parameter("battery_critical_threshold", 20);
     this->declare_parameter("temperature_warning_threshold", 60.0);
@@ -39,6 +42,7 @@ HealthMonitorNode::HealthMonitorNode()
     );
 
     alert_publisher_ = this->create_publisher<std_msgs::msg::String>("rover_alerts", 10);
+    command_publisher_ = this->create_publisher<std_msgs::msg::String>("rover_commands", 10);
 
     RCLCPP_INFO(this->get_logger(), "Health monitor node started.");
 }
@@ -64,7 +68,6 @@ HealthThresholds HealthMonitorNode::loadThresholds() const {
     return thresholds;
 }
 
-//better style
 void HealthMonitorNode::printDashboard(const ParsedTelemetryData& data, const HealthResult& result) const {
     const std::string colour = colourForStatus(result.status);
 
@@ -78,6 +81,7 @@ void HealthMonitorNode::printDashboard(const ParsedTelemetryData& data, const He
         << " Distance:    " << std::fixed << std::setprecision(1) << data.obstacle_distance << " m\n"
         << " Status:      " << colour << result.status << RESET << "\n"
         << " Reason:      " << result.reason << "\n"
+        << " Action:      " << CYAN << result.action << RESET << "\n"
         << "==================================================";
 
     RCLCPP_INFO(this->get_logger(), "%s", out.str().c_str());
@@ -106,6 +110,24 @@ void HealthMonitorNode::telemetryCallback(const std_msgs::msg::String::SharedPtr
         previous_status_ = result.status;
     }
 
+    if (result.action != previous_action_) {
+        RCLCPP_WARN(
+            this->get_logger(),
+            "ACTION CHANGE: %s -> %s",
+            previous_action_.c_str(),
+            result.action.c_str()
+        );
+
+        std_msgs::msg::String command_msg;
+        command_msg.data =
+            "COMMAND CHANGE: " + previous_action_ + " -> " + result.action +
+            " | Reason: " + result.reason +
+            " | Mode: " + data.mode;
+        command_publisher_->publish(command_msg);
+
+        previous_action_ = result.action;
+    }
+
     if (result.status == "WARNING" || result.status == "CRITICAL") {
         std_msgs::msg::String alert_msg;
         alert_msg.data =
@@ -114,6 +136,14 @@ void HealthMonitorNode::telemetryCallback(const std_msgs::msg::String::SharedPtr
             " | Mode: " + data.mode;
         alert_publisher_->publish(alert_msg);
     }
+
+    std_msgs::msg::String command_msg;
+    command_msg.data =
+        "COMMAND | Action: " + result.action +
+        " | Status: " + result.status +
+        " | Reason: " + result.reason +
+        " | Mode: " + data.mode;
+    command_publisher_->publish(command_msg);
 
     printDashboard(data, result);
 }

@@ -12,9 +12,9 @@ struct ParsedTelemetryData {
 struct HealthResult {
     std::string status;
     std::string reason;
+    std::string action;
 };
 
-//add parameters - Extension 
 struct HealthThresholds {
     int battery_warning_threshold;
     int battery_critical_threshold;

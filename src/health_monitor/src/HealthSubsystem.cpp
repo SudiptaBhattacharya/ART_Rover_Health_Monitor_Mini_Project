@@ -32,30 +32,33 @@ ParsedTelemetryData HealthSubsystem::parseTelemetry(const std::string& telemetry
     return data;
 }
 
-HealthResult HealthSubsystem::assessHealth(const ParsedTelemetryData& data, const HealthThresholds& thresholds) const {
+HealthResult HealthSubsystem::assessHealth(
+    const ParsedTelemetryData& data,
+    const HealthThresholds& thresholds
+) const {
+    if (data.obstacle_distance < thresholds.distance_critical_threshold) {
+        return {"CRITICAL", "Obstacle dangerously close", "STOP_IMMEDIATELY"};
+    }
+
     if (data.battery < thresholds.battery_critical_threshold) {
-        return {"CRITICAL", "Battery critically low"};
+        return {"CRITICAL", "Battery critically low", "ENTER_SAFE_MODE"};
     }
 
     if (data.temperature > thresholds.temperature_critical_threshold) {
-        return {"CRITICAL", "Motor temperature critically high"};
-    }
-
-    if (data.obstacle_distance < thresholds.distance_critical_threshold) {
-        return {"CRITICAL", "Obstacle dangerously close"};
-    }
-
-    if (data.battery < thresholds.battery_warning_threshold) {
-        return {"WARNING", "Battery getting low"};
-    }
-
-    if (data.temperature > thresholds.temperature_warning_threshold) {
-        return {"WARNING", "Motor temperature rising"};
+        return {"CRITICAL", "Motor temperature critically high", "SHUTDOWN_NONESSENTIAL_SYSTEMS"};
     }
 
     if (data.obstacle_distance < thresholds.distance_warning_threshold) {
-        return {"WARNING", "Obstacle approaching"};
+        return {"WARNING", "Obstacle approaching", "REDUCE_SPEED"};
     }
 
-    return {"OK", "All systems normal"};
+    if (data.temperature > thresholds.temperature_warning_threshold) {
+        return {"WARNING", "Motor temperature rising", "LIMIT_MOTOR_LOAD"};
+    }
+
+    if (data.battery < thresholds.battery_warning_threshold) {
+        return {"WARNING", "Battery getting low", "PREPARE_RETURN"};
+    }
+
+    return {"OK", "All systems normal", "CONTINUE_NORMAL"};
 }

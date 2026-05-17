@@ -318,6 +318,9 @@ message(STATUS "Execute custom install script")
 # install("TARGETS" "health_monitor" "DESTINATION" "lib/health_monitor")
 include("/home/sudiptabhattacharyareet/ART_Rover_Health_Monitor_Mini_Project/build/health_monitor/ament_cmake_symlink_install_targets_0_${CMAKE_INSTALL_CONFIG_NAME}.cmake")
 
+# install(DIRECTORY "launch" "DESTINATION" "share/health_monitor")
+ament_cmake_symlink_install_directory("/home/sudiptabhattacharyareet/ART_Rover_Health_Monitor_Mini_Project/src/health_monitor" DIRECTORY "launch" "DESTINATION" "share/health_monitor")
+
 # install(FILES "/home/sudiptabhattacharyareet/ART_Rover_Health_Monitor_Mini_Project/build/health_monitor/ament_cmake_index/share/ament_index/resource_index/package_run_dependencies/health_monitor" "DESTINATION" "share/ament_index/resource_index/package_run_dependencies")
 ament_cmake_symlink_install_files("/home/sudiptabhattacharyareet/ART_Rover_Health_Monitor_Mini_Project/src/health_monitor" FILES "/home/sudiptabhattacharyareet/ART_Rover_Health_Monitor_Mini_Project/build/health_monitor/ament_cmake_index/share/ament_index/resource_index/package_run_dependencies/health_monitor" "DESTINATION" "share/ament_index/resource_index/package_run_dependencies")
 

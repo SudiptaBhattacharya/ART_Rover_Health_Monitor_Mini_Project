@@ -17,6 +17,8 @@ private:
     HealthSubsystem subsystem_;
     rclcpp::Subscription<std_msgs::msg::String>::SharedPtr subscription_;
     rclcpp::Publisher<std_msgs::msg::String>::SharedPtr alert_publisher_;
+    rclcpp::Publisher<std_msgs::msg::String>::SharedPtr command_publisher_;
 
     std::string previous_status_;
+    std::string previous_action_;
 };
