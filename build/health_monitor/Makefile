@@ -197,6 +197,91 @@ health_monitor_uninstall/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/health_monitor_uninstall.dir/build.make CMakeFiles/health_monitor_uninstall.dir/build
 .PHONY : health_monitor_uninstall/fast
 
+#=============================================================================
+# Target rules for targets named health_monitor
+
+# Build rule for target.
+health_monitor: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 health_monitor
+.PHONY : health_monitor
+
+# fast build rule for target.
+health_monitor/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/health_monitor.dir/build.make CMakeFiles/health_monitor.dir/build
+.PHONY : health_monitor/fast
+
+src/HealthMonitorNode.o: src/HealthMonitorNode.cpp.o
+.PHONY : src/HealthMonitorNode.o
+
+# target to build an object file
+src/HealthMonitorNode.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/health_monitor.dir/build.make CMakeFiles/health_monitor.dir/src/HealthMonitorNode.cpp.o
+.PHONY : src/HealthMonitorNode.cpp.o
+
+src/HealthMonitorNode.i: src/HealthMonitorNode.cpp.i
+.PHONY : src/HealthMonitorNode.i
+
+# target to preprocess a source file
+src/HealthMonitorNode.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/health_monitor.dir/build.make CMakeFiles/health_monitor.dir/src/HealthMonitorNode.cpp.i
+.PHONY : src/HealthMonitorNode.cpp.i
+
+src/HealthMonitorNode.s: src/HealthMonitorNode.cpp.s
+.PHONY : src/HealthMonitorNode.s
+
+# target to generate assembly for a file
+src/HealthMonitorNode.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/health_monitor.dir/build.make CMakeFiles/health_monitor.dir/src/HealthMonitorNode.cpp.s
+.PHONY : src/HealthMonitorNode.cpp.s
+
+src/HealthSubsystem.o: src/HealthSubsystem.cpp.o
+.PHONY : src/HealthSubsystem.o
+
+# target to build an object file
+src/HealthSubsystem.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/health_monitor.dir/build.make CMakeFiles/health_monitor.dir/src/HealthSubsystem.cpp.o
+.PHONY : src/HealthSubsystem.cpp.o
+
+src/HealthSubsystem.i: src/HealthSubsystem.cpp.i
+.PHONY : src/HealthSubsystem.i
+
+# target to preprocess a source file
+src/HealthSubsystem.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/health_monitor.dir/build.make CMakeFiles/health_monitor.dir/src/HealthSubsystem.cpp.i
+.PHONY : src/HealthSubsystem.cpp.i
+
+src/HealthSubsystem.s: src/HealthSubsystem.cpp.s
+.PHONY : src/HealthSubsystem.s
+
+# target to generate assembly for a file
+src/HealthSubsystem.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/health_monitor.dir/build.make CMakeFiles/health_monitor.dir/src/HealthSubsystem.cpp.s
+.PHONY : src/HealthSubsystem.cpp.s
+
+src/main.o: src/main.cpp.o
+.PHONY : src/main.o
+
+# target to build an object file
+src/main.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/health_monitor.dir/build.make CMakeFiles/health_monitor.dir/src/main.cpp.o
+.PHONY : src/main.cpp.o
+
+src/main.i: src/main.cpp.i
+.PHONY : src/main.i
+
+# target to preprocess a source file
+src/main.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/health_monitor.dir/build.make CMakeFiles/health_monitor.dir/src/main.cpp.i
+.PHONY : src/main.cpp.i
+
+src/main.s: src/main.cpp.s
+.PHONY : src/main.s
+
+# target to generate assembly for a file
+src/main.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/health_monitor.dir/build.make CMakeFiles/health_monitor.dir/src/main.cpp.s
+.PHONY : src/main.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -212,6 +297,16 @@ help:
 	@echo "... test"
 	@echo "... health_monitor_uninstall"
 	@echo "... uninstall"
+	@echo "... health_monitor"
+	@echo "... src/HealthMonitorNode.o"
+	@echo "... src/HealthMonitorNode.i"
+	@echo "... src/HealthMonitorNode.s"
+	@echo "... src/HealthSubsystem.o"
+	@echo "... src/HealthSubsystem.i"
+	@echo "... src/HealthSubsystem.s"
+	@echo "... src/main.o"
+	@echo "... src/main.i"
+	@echo "... src/main.s"
 .PHONY : help
 
 

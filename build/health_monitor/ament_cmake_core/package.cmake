@@ -1,6 +1,6 @@
 set(_AMENT_PACKAGE_NAME "health_monitor")
 set(health_monitor_VERSION "0.0.0")
-set(health_monitor_MAINTAINER "sudiptabhattacharyareet <sudiptabhattacharyareet@todo.todo>")
+set(health_monitor_MAINTAINER "sudiptabhattacharyareet <sudiptoreet@gmail.com>")
 set(health_monitor_BUILD_DEPENDS "rclcpp" "std_msgs")
 set(health_monitor_BUILDTOOL_DEPENDS "ament_cmake")
 set(health_monitor_BUILD_EXPORT_DEPENDS "rclcpp" "std_msgs")

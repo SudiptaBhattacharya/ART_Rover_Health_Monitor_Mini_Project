@@ -1,0 +1,1 @@
+ament_cmake_symlink_install_targets("TARGET_FILES" "/home/sudiptabhattacharyareet/ART_Rover_Health_Monitor_Mini_Project/build/health_monitor/health_monitor" "TARGETS" "health_monitor" "DESTINATION" "lib/health_monitor")

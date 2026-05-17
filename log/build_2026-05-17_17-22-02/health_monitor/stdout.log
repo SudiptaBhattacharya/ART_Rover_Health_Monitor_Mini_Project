@@ -1,0 +1,22 @@
+[35m[1mConsolidate compiler generated dependencies of target health_monitor[0m
+[ 25%] [32mBuilding CXX object CMakeFiles/health_monitor.dir/src/main.cpp.o[0m
+[ 50%] [32m[1mLinking CXX executable health_monitor[0m
+[100%] Built target health_monitor
+-- Install configuration: ""
+-- Execute custom install script
+-- Symlinking: /home/sudiptabhattacharyareet/ART_Rover_Health_Monitor_Mini_Project/install/health_monitor/lib/health_monitor/health_monitor
+-- Symlinking: /home/sudiptabhattacharyareet/ART_Rover_Health_Monitor_Mini_Project/install/health_monitor/share/ament_index/resource_index/package_run_dependencies/health_monitor
+-- Symlinking: /home/sudiptabhattacharyareet/ART_Rover_Health_Monitor_Mini_Project/install/health_monitor/share/ament_index/resource_index/parent_prefix_path/health_monitor
+-- Symlinking: /home/sudiptabhattacharyareet/ART_Rover_Health_Monitor_Mini_Project/install/health_monitor/share/health_monitor/environment/ament_prefix_path.sh
+-- Symlinking: /home/sudiptabhattacharyareet/ART_Rover_Health_Monitor_Mini_Project/install/health_monitor/share/health_monitor/environment/ament_prefix_path.dsv
+-- Symlinking: /home/sudiptabhattacharyareet/ART_Rover_Health_Monitor_Mini_Project/install/health_monitor/share/health_monitor/environment/path.sh
+-- Symlinking: /home/sudiptabhattacharyareet/ART_Rover_Health_Monitor_Mini_Project/install/health_monitor/share/health_monitor/environment/path.dsv
+-- Symlinking: /home/sudiptabhattacharyareet/ART_Rover_Health_Monitor_Mini_Project/install/health_monitor/share/health_monitor/local_setup.bash
+-- Symlinking: /home/sudiptabhattacharyareet/ART_Rover_Health_Monitor_Mini_Project/install/health_monitor/share/health_monitor/local_setup.sh
+-- Symlinking: /home/sudiptabhattacharyareet/ART_Rover_Health_Monitor_Mini_Project/install/health_monitor/share/health_monitor/local_setup.zsh
+-- Symlinking: /home/sudiptabhattacharyareet/ART_Rover_Health_Monitor_Mini_Project/install/health_monitor/share/health_monitor/local_setup.dsv
+-- Symlinking: /home/sudiptabhattacharyareet/ART_Rover_Health_Monitor_Mini_Project/install/health_monitor/share/health_monitor/package.dsv
+-- Symlinking: /home/sudiptabhattacharyareet/ART_Rover_Health_Monitor_Mini_Project/install/health_monitor/share/ament_index/resource_index/packages/health_monitor
+-- Symlinking: /home/sudiptabhattacharyareet/ART_Rover_Health_Monitor_Mini_Project/install/health_monitor/share/health_monitor/cmake/health_monitorConfig.cmake
+-- Symlinking: /home/sudiptabhattacharyareet/ART_Rover_Health_Monitor_Mini_Project/install/health_monitor/share/health_monitor/cmake/health_monitorConfig-version.cmake
+-- Symlinking: /home/sudiptabhattacharyareet/ART_Rover_Health_Monitor_Mini_Project/install/health_monitor/share/health_monitor/package.xml

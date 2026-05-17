@@ -1,0 +1,1 @@
+ament_cmake_symlink_install_targets("TARGET_FILES" "/home/sudiptabhattacharyareet/ART_Rover_Health_Monitor_Mini_Project/build/rover_telemetry/rover_telemetry" "TARGETS" "rover_telemetry" "DESTINATION" "lib/rover_telemetry")

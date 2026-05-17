@@ -1,6 +1,6 @@
 set(_AMENT_PACKAGE_NAME "rover_telemetry")
 set(rover_telemetry_VERSION "0.0.0")
-set(rover_telemetry_MAINTAINER "sudiptabhattacharyareet <sudiptabhattacharyareet@todo.todo>")
+set(rover_telemetry_MAINTAINER "Sudipta Bhattacharya <sudiptoreet@gmail.com>")
 set(rover_telemetry_BUILD_DEPENDS "rclcpp" "std_msgs")
 set(rover_telemetry_BUILDTOOL_DEPENDS "ament_cmake")
 set(rover_telemetry_BUILD_EXPORT_DEPENDS "rclcpp" "std_msgs")

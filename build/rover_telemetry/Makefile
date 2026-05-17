@@ -197,6 +197,91 @@ rover_telemetry_uninstall/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/rover_telemetry_uninstall.dir/build.make CMakeFiles/rover_telemetry_uninstall.dir/build
 .PHONY : rover_telemetry_uninstall/fast
 
+#=============================================================================
+# Target rules for targets named rover_telemetry
+
+# Build rule for target.
+rover_telemetry: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 rover_telemetry
+.PHONY : rover_telemetry
+
+# fast build rule for target.
+rover_telemetry/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/rover_telemetry.dir/build.make CMakeFiles/rover_telemetry.dir/build
+.PHONY : rover_telemetry/fast
+
+src/TelemetryNode.o: src/TelemetryNode.cpp.o
+.PHONY : src/TelemetryNode.o
+
+# target to build an object file
+src/TelemetryNode.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/rover_telemetry.dir/build.make CMakeFiles/rover_telemetry.dir/src/TelemetryNode.cpp.o
+.PHONY : src/TelemetryNode.cpp.o
+
+src/TelemetryNode.i: src/TelemetryNode.cpp.i
+.PHONY : src/TelemetryNode.i
+
+# target to preprocess a source file
+src/TelemetryNode.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/rover_telemetry.dir/build.make CMakeFiles/rover_telemetry.dir/src/TelemetryNode.cpp.i
+.PHONY : src/TelemetryNode.cpp.i
+
+src/TelemetryNode.s: src/TelemetryNode.cpp.s
+.PHONY : src/TelemetryNode.s
+
+# target to generate assembly for a file
+src/TelemetryNode.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/rover_telemetry.dir/build.make CMakeFiles/rover_telemetry.dir/src/TelemetryNode.cpp.s
+.PHONY : src/TelemetryNode.cpp.s
+
+src/TelemetrySubsystem.o: src/TelemetrySubsystem.cpp.o
+.PHONY : src/TelemetrySubsystem.o
+
+# target to build an object file
+src/TelemetrySubsystem.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/rover_telemetry.dir/build.make CMakeFiles/rover_telemetry.dir/src/TelemetrySubsystem.cpp.o
+.PHONY : src/TelemetrySubsystem.cpp.o
+
+src/TelemetrySubsystem.i: src/TelemetrySubsystem.cpp.i
+.PHONY : src/TelemetrySubsystem.i
+
+# target to preprocess a source file
+src/TelemetrySubsystem.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/rover_telemetry.dir/build.make CMakeFiles/rover_telemetry.dir/src/TelemetrySubsystem.cpp.i
+.PHONY : src/TelemetrySubsystem.cpp.i
+
+src/TelemetrySubsystem.s: src/TelemetrySubsystem.cpp.s
+.PHONY : src/TelemetrySubsystem.s
+
+# target to generate assembly for a file
+src/TelemetrySubsystem.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/rover_telemetry.dir/build.make CMakeFiles/rover_telemetry.dir/src/TelemetrySubsystem.cpp.s
+.PHONY : src/TelemetrySubsystem.cpp.s
+
+src/main.o: src/main.cpp.o
+.PHONY : src/main.o
+
+# target to build an object file
+src/main.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/rover_telemetry.dir/build.make CMakeFiles/rover_telemetry.dir/src/main.cpp.o
+.PHONY : src/main.cpp.o
+
+src/main.i: src/main.cpp.i
+.PHONY : src/main.i
+
+# target to preprocess a source file
+src/main.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/rover_telemetry.dir/build.make CMakeFiles/rover_telemetry.dir/src/main.cpp.i
+.PHONY : src/main.cpp.i
+
+src/main.s: src/main.cpp.s
+.PHONY : src/main.s
+
+# target to generate assembly for a file
+src/main.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/rover_telemetry.dir/build.make CMakeFiles/rover_telemetry.dir/src/main.cpp.s
+.PHONY : src/main.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -212,6 +297,16 @@ help:
 	@echo "... test"
 	@echo "... rover_telemetry_uninstall"
 	@echo "... uninstall"
+	@echo "... rover_telemetry"
+	@echo "... src/TelemetryNode.o"
+	@echo "... src/TelemetryNode.i"
+	@echo "... src/TelemetryNode.s"
+	@echo "... src/TelemetrySubsystem.o"
+	@echo "... src/TelemetrySubsystem.i"
+	@echo "... src/TelemetrySubsystem.s"
+	@echo "... src/main.o"
+	@echo "... src/main.i"
+	@echo "... src/main.s"
 .PHONY : help
 
 

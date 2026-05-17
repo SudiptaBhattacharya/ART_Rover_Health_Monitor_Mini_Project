@@ -1,0 +1,79 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-.-b587f7b4a69fe9339fc7.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.12"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2
+					]
+				}
+			],
+			"name" : "",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "rover_telemetry",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "rover_telemetry::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-rover_telemetry-fafda8eb994456ea718a.json",
+					"name" : "rover_telemetry",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "rover_telemetry_uninstall::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-rover_telemetry_uninstall-2141337d9684ccba7696.json",
+					"name" : "rover_telemetry_uninstall",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "uninstall::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-uninstall-b97be5b4a2811ca13bc4.json",
+					"name" : "uninstall",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "/home/sudiptabhattacharyareet/ART_Rover_Health_Monitor_Mini_Project/build/rover_telemetry",
+		"source" : "/home/sudiptabhattacharyareet/ART_Rover_Health_Monitor_Mini_Project/src/rover_telemetry"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 3
+	}
+}
