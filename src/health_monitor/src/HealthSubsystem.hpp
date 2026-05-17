@@ -14,8 +14,18 @@ struct HealthResult {
     std::string reason;
 };
 
+//add parameters - Extension 
+struct HealthThresholds {
+    int battery_warning_threshold;
+    int battery_critical_threshold;
+    double temperature_warning_threshold;
+    double temperature_critical_threshold;
+    double distance_warning_threshold;
+    double distance_critical_threshold;
+};
+
 class HealthSubsystem {
 public:
     ParsedTelemetryData parseTelemetry(const std::string& telemetry) const;
-    HealthResult assessHealth(const ParsedTelemetryData& data) const;
+    HealthResult assessHealth(const ParsedTelemetryData& data, const HealthThresholds& thresholds) const;
 };

@@ -32,28 +32,28 @@ ParsedTelemetryData HealthSubsystem::parseTelemetry(const std::string& telemetry
     return data;
 }
 
-HealthResult HealthSubsystem::assessHealth(const ParsedTelemetryData& data) const {
-    if (data.battery < 20) {
+HealthResult HealthSubsystem::assessHealth(const ParsedTelemetryData& data, const HealthThresholds& thresholds) const {
+    if (data.battery < thresholds.battery_critical_threshold) {
         return {"CRITICAL", "Battery critically low"};
     }
 
-    if (data.temperature > 75.0) {
+    if (data.temperature > thresholds.temperature_critical_threshold) {
         return {"CRITICAL", "Motor temperature critically high"};
     }
 
-    if (data.obstacle_distance < 0.5) {
+    if (data.obstacle_distance < thresholds.distance_critical_threshold) {
         return {"CRITICAL", "Obstacle dangerously close"};
     }
 
-    if (data.battery < 40) {
+    if (data.battery < thresholds.battery_warning_threshold) {
         return {"WARNING", "Battery getting low"};
     }
 
-    if (data.temperature > 60.0) {
+    if (data.temperature > thresholds.temperature_warning_threshold) {
         return {"WARNING", "Motor temperature rising"};
     }
 
-    if (data.obstacle_distance < 1.0) {
+    if (data.obstacle_distance < thresholds.distance_warning_threshold) {
         return {"WARNING", "Obstacle approaching"};
     }
 
