@@ -7,13 +7,12 @@ struct TelemetryData {
   int battery;
   double temperature;  // celsius
   double obstacle_distance;
+  std::string mode;
 };
 
 class TelemetrySubsystem {
  private:
-  int battery_;
-  double temperature_;
-  double obstacle_distance_;
+  int step_;
 
  public:
   // constructor

@@ -12,12 +12,13 @@ HealthMonitorNode::HealthMonitorNode() : Node("health_monitor_node") {
 
 void HealthMonitorNode::telemetryCallback(const std_msgs::msg::String::SharedPtr msg) {
     const ParsedTelemetryData data = subsystem_.parseTelemetry(msg->data);
-    const std::string health = subsystem_.assessHealth(data);
+    const HealthResult result = subsystem_.assessHealth(data);
 
     RCLCPP_INFO(
         this->get_logger(),
-        "Received telemetry: %s | Health status: %s",
+        "Received telemetry: %s | Status: %s | Reason: %s",
         msg->data.c_str(),
-        health.c_str()
+        result.status.c_str(),
+        result.reason.c_str()
     );
 }

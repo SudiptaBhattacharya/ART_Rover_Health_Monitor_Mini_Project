@@ -1,11 +1,10 @@
 #include "HealthSubsystem.hpp"
 
 #include <sstream>
-#include <stdexcept>
 #include <string>
 
 ParsedTelemetryData HealthSubsystem::parseTelemetry(const std::string& telemetry) const {
-    ParsedTelemetryData data{0, 0.0, 0.0};
+    ParsedTelemetryData data{0, 0.0, 0.0, "UNKNOWN"};
 
     std::stringstream ss(telemetry);
     std::string token;
@@ -25,20 +24,38 @@ ParsedTelemetryData HealthSubsystem::parseTelemetry(const std::string& telemetry
             data.temperature = std::stod(value);
         } else if (key == "distance") {
             data.obstacle_distance = std::stod(value);
+        } else if (key == "mode") {
+            data.mode = value;
         }
     }
 
     return data;
 }
 
-std::string HealthSubsystem::assessHealth(const ParsedTelemetryData& data) const {
-    if (data.battery < 20 || data.temperature > 75.0 || data.obstacle_distance < 0.5) {
-        return "CRITICAL";
+HealthResult HealthSubsystem::assessHealth(const ParsedTelemetryData& data) const {
+    if (data.battery < 20) {
+        return {"CRITICAL", "Battery critically low"};
     }
 
-    if (data.battery < 40 || data.temperature > 60.0 || data.obstacle_distance < 1.0) {
-        return "WARNING";
+    if (data.temperature > 75.0) {
+        return {"CRITICAL", "Motor temperature critically high"};
     }
 
-    return "OK";
+    if (data.obstacle_distance < 0.5) {
+        return {"CRITICAL", "Obstacle dangerously close"};
+    }
+
+    if (data.battery < 40) {
+        return {"WARNING", "Battery getting low"};
+    }
+
+    if (data.temperature > 60.0) {
+        return {"WARNING", "Motor temperature rising"};
+    }
+
+    if (data.obstacle_distance < 1.0) {
+        return {"WARNING", "Obstacle approaching"};
+    }
+
+    return {"OK", "All systems normal"};
 }
